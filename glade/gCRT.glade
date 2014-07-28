@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
+<!--Generated with glade3 3.4.5 on Fri Apr 16 16:01:54 2010 -->
+<glade-interface>
+  <widget class="GtkWindow" id="main_window">
+    <property name="title" translatable="yes">gCRT</property>
+    <property name="window_position">GTK_WIN_POS_CENTER</property>
+    <property name="default_width">400</property>
+    <property name="default_height">400</property>
+    <property name="icon">gCRT.png</property>
+    <child>
+      <widget class="GtkVBox" id="main_vbox">
+        <property name="visible">True</property>
+        <child>
+          <widget class="GtkToolbar" id="main_toolbar">
+            <property name="visible">True</property>
+            <property name="toolbar_style">GTK_TOOLBAR_ICONS</property>
+            <property name="icon_size">GTK_ICON_SIZE_MENU</property>
+            <child>
+              <widget class="GtkToolButton" id="toolbutton_connect">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">连接</property>
+                <property name="stock_id">gtk-connect</property>
+                <signal name="clicked" handler="on_toolbutton_connect_clicked"/>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="toolbutton_quick_connect">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">快速连接</property>
+                <property name="stock_id">gtk-network</property>
+                <signal name="clicked" handler="on_toolbutton_quick_connect_clicked"/>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkSeparatorToolItem" id="toolbutton1">
+                <property name="visible">True</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="toolbutton_new_session">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">新建连接</property>
+                <property name="stock_id">gtk-add</property>
+                <signal name="clicked" handler="on_toolbutton_new_session_clicked"/>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="toolbutton_delete_session">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">删除连接</property>
+                <property name="stock_id">gtk-remove</property>
+                <signal name="clicked" handler="on_toolbutton_delete_session_clicked"/>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="toolbutton_edit_session">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">编辑连接</property>
+                <property name="stock_id">gtk-edit</property>
+                <signal name="clicked" handler="on_toolbutton_edit_session_clicked"/>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkSeparatorToolItem" id="toolbutton2">
+                <property name="visible">True</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="toolbutton_preference">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">首选项</property>
+                <property name="stock_id">gtk-preferences</property>
+                <signal name="clicked" handler="on_toolbutton_preference_clicked"/>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkScrolledWindow" id="scrolledwindow_sessions">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+            <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+            <child>
+              <widget class="GtkTreeView" id="treeview_sessions">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="headers_clickable">True</property>
+                <signal name="button_press_event" handler="on_treeview_sessions_button_press_event"/>
+                <signal name="row_activated" handler="on_treeview_sessions_row_activated"/>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkHBox" id="hbox_action">
+            <property name="visible">True</property>
+            <child>
+              <widget class="GtkCheckButton" id="checkbutton_minimized">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="label" translatable="yes">启动后最小化</property>
+                <property name="response_id">0</property>
+                <property name="draw_indicator">True</property>
+                <signal name="toggled" handler="on_checkbutton_minimized_toggled"/>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkButton" id="button_connect">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="label" translatable="yes">连接</property>
+                <property name="response_id">0</property>
+                <signal name="clicked" handler="on_button_connect_clicked"/>
+              </widget>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkButton" id="button_quit">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="label" translatable="yes">关闭</property>
+                <property name="response_id">0</property>
+                <signal name="clicked" handler="on_button_quit_clicked"/>
+              </widget>
+              <packing>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="GtkDialog" id="dialog_session">
+    <property name="border_width">5</property>
+    <property name="window_position">GTK_WIN_POS_CENTER_ON_PARENT</property>
+    <property name="icon">gCRT.png</property>
+    <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
+    <property name="has_separator">False</property>
+    <child internal-child="vbox">
+      <widget class="GtkVBox" id="dialog-vbox_session">
+        <property name="visible">True</property>
+        <property name="spacing">2</property>
+        <child>
+          <widget class="GtkVBox" id="vbox_session_info">
+            <property name="visible">True</property>
+            <property name="spacing">5</property>
+            <child>
+              <widget class="GtkHBox" id="hbox_session_name">
+                <property name="visible">True</property>
+                <child>
+                  <widget class="GtkLabel" id="label_session_name">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">连接名称：</property>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkEntry" id="entry_session_name">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                  </widget>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkHBox" id="hbox_protocol">
+                <property name="visible">True</property>
+                <child>
+                  <widget class="GtkLabel" id="label_protocol">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">连接协议：</property>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkComboBox" id="combobox_protocol">
+                    <property name="visible">True</property>
+                    <property name="items" translatable="yes"></property>
+                    <signal name="changed" handler="on_combobox_protocol_changed"/>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkHBox" id="hbox_host">
+                <property name="visible">True</property>
+                <child>
+                  <widget class="GtkLabel" id="label_host">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">连接主机：</property>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkEntry" id="entry_host">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                  </widget>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkHBox" id="hbox_port">
+                <property name="visible">True</property>
+                <child>
+                  <widget class="GtkLabel" id="label_port">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">连接端口：</property>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkEntry" id="entry_port">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkHBox" id="hbox_username">
+                <property name="visible">True</property>
+                <child>
+                  <widget class="GtkLabel" id="label_username">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">登录用户：</property>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkEntry" id="entry_username">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">4</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkHBox" id="hbox_password">
+                <property name="visible">True</property>
+                <child>
+                  <widget class="GtkLabel" id="label_password">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">登录密码：</property>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkEntry" id="entry_password">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                  </widget>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="position">5</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child internal-child="action_area">
+          <widget class="GtkHButtonBox" id="dialog-action_area_session">
+            <property name="visible">True</property>
+            <property name="layout_style">GTK_BUTTONBOX_END</property>
+            <child>
+              <widget class="GtkButton" id="button_session_ok">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="label" translatable="yes">确定</property>
+                <property name="response_id">0</property>
+                <signal name="clicked" handler="on_button_session_ok_clicked"/>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkButton" id="button_session_cancel">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="label" translatable="yes">取消</property>
+                <property name="response_id">0</property>
+                <signal name="clicked" handler="on_button_session_cancel_clicked"/>
+              </widget>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">GTK_PACK_END</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="GtkDialog" id="dialog_preference">
+    <property name="border_width">5</property>
+    <property name="window_position">GTK_WIN_POS_CENTER_ON_PARENT</property>
+    <property name="icon">gCRT.png</property>
+    <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
+    <property name="has_separator">False</property>
+    <child internal-child="vbox">
+      <widget class="GtkVBox" id="dialog-vbox_preference">
+        <property name="visible">True</property>
+        <property name="spacing">2</property>
+        <child>
+          <widget class="GtkVBox" id="vbox_preferences">
+            <property name="visible">True</property>
+            <child>
+              <widget class="GtkFrame" id="frame_terminal">
+                <property name="visible">True</property>
+                <property name="label_xalign">0</property>
+                <property name="shadow_type">GTK_SHADOW_ETCHED_OUT</property>
+                <child>
+                  <widget class="GtkAlignment" id="alignment_terminal">
+                    <property name="visible">True</property>
+                    <property name="left_padding">12</property>
+                    <child>
+                      <widget class="GtkComboBox" id="combobox_terminal">
+                        <property name="visible">True</property>
+                        <property name="items" translatable="yes"></property>
+                      </widget>
+                    </child>
+                  </widget>
+                </child>
+                <child>
+                  <widget class="GtkRadioButton" id="radiobutton_terminal">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="label" translatable="yes">使用标准终端</property>
+                    <property name="response_id">0</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                    <property name="group">radiobutton_interface</property>
+                    <signal name="toggled" handler="on_radiobutton_terminal_toggled"/>
+                  </widget>
+                  <packing>
+                    <property name="type">label_item</property>
+                  </packing>
+                </child>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkFrame" id="frame_interface">
+                <property name="visible">True</property>
+                <property name="label_xalign">0</property>
+                <property name="shadow_type">GTK_SHADOW_ETCHED_OUT</property>
+                <child>
+                  <widget class="GtkAlignment" id="alignment_interface">
+                    <property name="visible">True</property>
+                    <property name="left_padding">12</property>
+                    <child>
+                      <widget class="GtkVBox" id="vbox_interface">
+                        <property name="visible">True</property>
+                        <child>
+                          <widget class="GtkLabel" id="label_prompt">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="label" translatable="yes">%h: 主机; %p: 协议; %n: 端口; %u: 用户; %w: 密码</property>
+                          </widget>
+                        </child>
+                        <child>
+                          <widget class="GtkEntry" id="entry_interface">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                          </widget>
+                          <packing>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </widget>
+                    </child>
+                  </widget>
+                </child>
+                <child>
+                  <widget class="GtkRadioButton" id="radiobutton_interface">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="label" translatable="yes">使用自定义接口</property>
+                    <property name="response_id">0</property>
+                    <property name="active">True</property>
+                    <property name="draw_indicator">True</property>
+                  </widget>
+                  <packing>
+                    <property name="type">label_item</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child internal-child="action_area">
+          <widget class="GtkHButtonBox" id="dialog-action_area_preference">
+            <property name="visible">True</property>
+            <property name="layout_style">GTK_BUTTONBOX_END</property>
+            <child>
+              <widget class="GtkButton" id="button_preference_ok">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="label" translatable="yes">确定</property>
+                <property name="response_id">0</property>
+                <signal name="clicked" handler="on_button_preference_ok_clicked"/>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkButton" id="button_preference_cancel">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="label" translatable="yes">取消</property>
+                <property name="response_id">0</property>
+                <signal name="clicked" handler="on_button_preference_cancel_clicked"/>
+              </widget>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">GTK_PACK_END</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>
